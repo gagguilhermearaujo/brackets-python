@@ -1,4 +1,4 @@
-#Bracket challenge
+# Bracket challenge
 
 Resolução do Bracket Challenge -> Como proposto, o algoritmo verifica o balanceamento dos brackets.
 
