@@ -1,21 +1,13 @@
 import unittest
+
 import balanced_brackets
 
 
 class TestBalancedBrackets(unittest.TestCase):
-
     def test_case_0(self):
-        tests = [
-            '{[()]}',
-            '{[(])}',
-            '{{[[(())]]}}'
-        ]
+        tests = ["{[()]}", "{[(])}", "{{[[(())]]}}"]
 
-        answers = [
-            'YES',
-            'NO',
-            'YES'
-        ]
+        answers = ["YES", "NO", "YES"]
 
         results = []
 
@@ -25,15 +17,9 @@ class TestBalancedBrackets(unittest.TestCase):
         self.assertEqual(results, answers)
 
     def test_case_1(self):
-        tests = [
-            '{{([])}}',
-            '{{)[](}}'
-        ]
+        tests = ["{{([])}}", "{{)[](}}"]
 
-        answers = [
-            'YES',
-            'NO'
-        ]
+        answers = ["YES", "NO"]
 
         results = []
 
@@ -43,17 +29,21 @@ class TestBalancedBrackets(unittest.TestCase):
         self.assertEqual(results, answers)
 
     def test_case_2(self):
-        tests = [
-            '{(([])[])[]}',
-            '{(([])[])[]]}',
-            '{(([])[])[]}[]'
-        ]
+        tests = ["{(([])[])[]}", "{(([])[])[]]}", "{(([])[])[]}[]"]
 
-        answers = [
-            'YES',
-            'NO',
-            'YES'
-        ]
+        answers = ["YES", "NO", "YES"]
+
+        results = []
+
+        for test in tests:
+            results.append(balanced_brackets.isBalanced(test))
+
+        self.assertEqual(results, answers)
+
+    def test_case_3(self):
+        tests = ["][(){}", "{[)()]}", "[]{}()"]
+
+        answers = ["NO", "NO", "YES"]
 
         results = []
 
@@ -63,5 +53,5 @@ class TestBalancedBrackets(unittest.TestCase):
         self.assertEqual(results, answers)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
